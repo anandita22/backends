@@ -1,0 +1,346 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/assets/fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f6f6f6;
+}
+
+.siteLogo {
+  max-width: 175px;
+}
+
+button.btn {
+  border: 0.1rem solid #23a86d;
+  color: #23a86d;
+  font-weight: 700;
+  border-radius: 20px;
+  transition: 0.4s;
+  box-shadow: none;
+  max-width: 300px;
+}
+
+button.btn:hover,
+button.btn:active,
+button.btn:focus {
+  background-color: #2e9b6c !important;
+  color: white;
+  box-shadow: none;
+}
+
+.normalFontSize {
+  font-size: 1.125rem;
+}
+
+.commonFontSize {
+  font-size: 0.875rem;
+}
+
+.themeColor {
+  color: #23a86d !important;
+}
+
+.silverThemeColor {
+  color: #99a3a9;
+}
+
+.errorMsg {
+  color: red;
+  opacity: 0.8;
+}
+
+input {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #eee !important;
+  border-color: #eee !important;
+  border-radius: 22px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease-in-out;
+  color: #495057 !important;
+  min-height: 43.19px !important;
+}
+
+input:active,
+input:focus {
+  box-shadow: none !important;
+  border-color: #eee !important;
+}
+
+.invalid_Input {
+  border-color: red !important;
+}
+
+#header {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
+#uploadFile {
+  background-color: #23a86d;
+}
+
+.mainPara {
+  font-size: 1rem;
+  color: #99a3a9;
+}
+
+.bannerPara {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.upload_icon {
+  width: 150px;
+  height: 150px;
+}
+
+.fa-file-upload {
+  font-size: 6.25rem;
+  z-index: 1000;
+}
+
+#uploadFile .icons i {
+  position: absolute;
+  color: #fff;
+  font-size: 1.5625rem;
+}
+
+#uploadFile .icons i.fa-file-word {
+  top: 0;
+  right: 0;
+  animation: word 2.3s linear infinite;
+}
+
+#uploadFile .icons i.fa-file-image {
+  bottom: 10px;
+  left: 38px;
+  opacity: 0.7;
+  animation: image 2.8s linear infinite;
+}
+
+#uploadFile .icons i.fa-file-video {
+  top: 50px;
+  left: 40px;
+  color: #99a3a9;
+  opacity: 0.4;
+  animation: video 3s linear infinite;
+}
+
+#uploadFile .icons i.fa-file-invoice-dollar {
+  top: 20px;
+  right: 55px;
+  color: rgba(0, 0, 0, 0.2);
+  opacity: 0.4;
+  animation: dollar 3.8s linear infinite;
+}
+
+#uploadFile .icons .fa-file-pdf {
+  bottom: 0;
+  right: 10px;
+  color: #fff;
+  opacity: 0.4;
+  animation: pdf 2s linear infinite;
+}
+
+@keyframes pdf {
+  100% {
+    opacity: 0;
+    bottom: 30px;
+    right: -70px;
+    font-size: 2.1875rem;
+  }
+}
+
+@keyframes word {
+  100% {
+    opacity: 0;
+    top: -100px;
+    right: -30px;
+    font-size: 3.125rem;
+    font-weight: 300;
+  }
+}
+
+@keyframes image {
+  100% {
+    opacity: 0;
+    left: -100px;
+    bottom: -30px;
+    font-size: 2.1875rem;
+  }
+}
+
+@keyframes video {
+  100% {
+    opacity: 0;
+    top: -100px;
+    left: -20px;
+  }
+}
+
+@keyframes dollar {
+  100% {
+    opacity: 0;
+    top: -100px;
+    font-size: 2.5rem;
+  }
+}
+
+.uploadFileCTA {
+  top: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.uploadFileCTA i.fa-cloud-upload-alt {
+  color: #23a86d;
+  font-size: 6.25rem;
+}
+
+.dragDropPara {
+  color: #99a3a9;
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+.fileUploader {
+  top: 30px;
+}
+
+#loginCTA {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.signIntext {
+  color: #202430;
+  font-weight: 600;
+  opacity: 0.75;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #23a86d;
+}
+
+.fileInfoWrapper {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.fileInfoWrapper i.fa-file-archive {
+  color: #23a86d;
+  font-size: 4.25rem;
+}
+
+.fileInfoWrapper .signIntext {
+  border-color: transparent !important;
+}
+
+.metaInfo span {
+  color: #99a3a9;
+  font-size: 0.875rem;
+}
+
+.downloadCTAWrapper button {
+  border-radius: 30px;
+}
+
+.activeBtn {
+  background-color: #23a86d;
+  color: white !important;
+}
+
+.downloadCTAWrapper {
+  height: auto !important;
+}
+
+.transparentBorder {
+  border-color: transparent !important;
+}
+
+.modal-content {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border: 2px solid #23a86d;
+}
+
+#admin .adminSection {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border-bottom: 2px solid transparent;
+  transition: 0.4s;
+}
+
+#admin .adminSection i {
+  font-size: 2.25rem;
+  color: #6ed1a5;
+  transition: 0.4s;
+}
+
+#admin .activeAdminSection {
+  border-bottom: 5px solid #23a86d;
+}
+
+#admin .adminSection .mainPara {
+  font-size: 2.25rem;
+}
+
+#admin .adminSection:hover {
+  border-bottom: 5px solid #23a86d;
+}
+
+#admin .adminSection:hover i {
+  color: #23a86d;
+}
+
+#adminFiles {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.adminFileName:hover {
+  text-decoration-line: underline;
+}
+
+#content h1,
+#content h3 {
+  color: #202430;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+#content p {
+  color: #66686a;
+  margin-bottom: 2rem;
+}
+
+#content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.copyFileURL {
+  max-width: 400px;
+}
+
+.copyFileURLBtn {
+  min-width: 155px;
+}
+
+.copyFileURLAdmin {
+  visibility: hidden;
+}

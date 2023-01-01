@@ -1,0 +1,105 @@
+<div class="container mt-5" ng-init="getFiles();">
+  <div id="adminFiles" class="bg-white rounded px-3 py-4">
+    <div class="row justify-content-between py-3">
+      <div class="col-4">
+        <h5 class="mb-0 themeColor normalFontSize font-weight-bold">
+          Filename - Page {{ currentPage + 1 }}
+        </h5>
+      </div>
+      <div class="col-8">
+        <div class="d-flex justify-content-end">
+          <i class="fas fa-eye themeColor normalFontSize mr-5"></i>
+        </div>
+      </div>
+    </div>
+    <hr class="m-0" />
+    <div
+      class="row justify-content-between py-3"
+      ng-repeat="file in adminFiles track by $index"
+    >
+      <div class="col-9">
+        <a
+          ng-href="/file/{{ file.infoURL }}"
+          class="text-decoration-none"
+          target="_blank"
+        >
+          <h5
+            class="mb-1 themeColor normalFontSize font-weight-bold adminFileName"
+          >
+            {{ splitName(file.name, 70) }}
+          </h5>
+        </a>
+        <div class="d-flex">
+          <div class="metaInfo">
+            <span class="d-inline-block mr-3">
+              Uploaded on:
+              <span class="d-inline-block font-weight-bold">{{
+                parseDate(file.uploadDate)
+              }}</span>
+            </span>
+
+            <span class="d-inline-block mr-3">
+              Size:
+              <span class="d-inline-block font-weight-bold">{{
+                file.size
+              }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="d-flex justify-content-end">
+          <i
+            class="fas fa-paste themeColor normalFontSize mr-5 c-pointer"
+            ng-click="copyURL('file', file.infoURL);"
+          ></i>
+
+          <i
+            class="fas fa-edit themeColor normalFontSize mr-5 c-pointer"
+            ng-click="editFile(file._id, $index);"
+          ></i>
+
+          <span class="d-inline-block mr-5 silverThemeColor font-weight-bold">{{
+            file.views
+          }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4" ng-if="adminFiles && adminFiles.length === 0">
+      <div class="col-12 text-center">
+        <p class="m-0">No files found!</p>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+      <div class="col-4 text-center">
+        <button
+          ng-disabled="currentPage === 0"
+          class="btn px-4 py-2 mr-3"
+          type="button"
+          ng-click="prevFiles();"
+        >
+          Prev
+        </button>
+        <button
+          ng-disabled="isNextEnable === false || (adminFiles && adminFiles.length === 0)"
+          class="btn px-4 py-2"
+          type="button"
+          ng-click="nextFiles();"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input
+  ng-readonly="true"
+  type="text"
+  class="form-control px-3 w-100 copyFileURL copyFileURLAdmin"
+  placeholder="https://faug.guru/file/..."
+  id="copyFileURLInput"
+/>
+
+<%- include('./editFile.ejs'); %>

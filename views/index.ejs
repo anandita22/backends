@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Downloader</title>
+    <% if(isProd === false){ %>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <% } else{ %>
+    <link rel="stylesheet" href="/dist/app.min.css" />
+    <% } %>
+  </head>
+  <body ng-controller="mainController">
+    <%- include('./includes/header.ejs') %>
+
+    <main>
+      <section id="uploadFile">
+        <div class="container">
+          <div class="row align-items-center pt-5 pb-0 pb-md-5">
+            <div class="col-md-6 mb-5 mb-md-0">
+              <h1 class="mb-4 text-white font-weight-bold">
+                Uploads Files On Cloud
+              </h1>
+              <p class="mainPara mb-0 bannerPara">
+                Powerful file sharing service with affiliate programs that
+                allows your to earn while sharing files with your colleges ,
+                friends, forums or your own blog / website.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="upoad_home text-center">
+                <div class="upload_icon position-relative my-0 mx-auto">
+                  <i
+                    class="fas fa-file-upload position-relative text-white"
+                  ></i>
+                  <div class="icons">
+                    <i class="far fa-file-word"></i>
+                    <i class="far fa-file-image"></i>
+                    <i class="far fa-file-video"></i>
+                    <i class="far fa-file-invoice-dollar"></i>
+                    <i class="far fa-file-pdf"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-center">
+              <p
+                class="mainPara mb-0 bannerPara position-relative fileUploader"
+              >
+                File Uploader
+              </p>
+            </div>
+            <div class="col-12 text-center">
+              <div
+                ng-click="resetFile()"
+                data-toggle="modal"
+                data-target="#fileUploadModal"
+                class="uploadFileCTA bg-white border-0 rounded py-md-5 py-4 position-relative c-pointer"
+              >
+                <i class="fas fa-cloud-upload-alt mb-4"></i>
+                <p class="mainPara mb-0 dragDropPara">
+                  Drag & Drop files here or click to browse
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <%- include('./includes/uploadFile.ejs'); %>
+    </main>
+
+    <% if(isProd === true){ %>
+    <script src="/dist/app.min.js"></script>
+    <% } else{ %>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/mainController.js"></script>
+    <script src="/assets/js/mainService.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <% } %>
+    <script
+      src="https://kit.fontawesome.com/a032fe1b0d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

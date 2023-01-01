@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <% if(isProd === false){ %>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <% } else{ %>
+    <link rel="stylesheet" href="/dist/app.min.css" />
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+    <%- include('./includes/googleAnalytic.ejs'); %>
+    <% } %> <%- include('./adv/popup.ejs'); %> <%-
+    include('./adv/pagePush.ejs'); %>
+  </head>
+  <body ng-controller="mainController">
+    <%- include('./includes/header.ejs') %>
+
+    <main>
+      <%- include('./includes/fileInfo.ejs'); %>
+      <div class="container-fluid adsWrapper">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-lg-4 col-12 text-center">
+            <div class="adv mx-auto">
+              <%- include('./adv/leftSquare.ejs'); %>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12 text-center">
+            <div class="adv mx-auto downloadCTAWrapper mt-sm-5 mt-4">
+              <button
+                class="btn px-4 py-3 w-100 activeBtn"
+                type="button"
+                ng-click="sendGAEvent('DOWNLOAD_PAGE'); downloadFile('<%= fileData.downloadURL %>', '<%= fileData.directDownloadURL %>')"
+              >
+                Download Now
+                <i class="fas fa-download ml-3 normalFontSize"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12 text-center my-4 my-lg-0">
+            <div class="adv mx-auto">
+              <%- include('./adv/rightSquare.ejs'); %>
+            </div>
+          </div>
+        </div>
+        <div class="row my-4 d-md-block d-none">
+          <div class="col-12 text-center">
+            <div class="adv mx-auto">
+              <%- include('./adv/bottomSkyscraper.ejs'); %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%- include('./includes/content2.ejs') %>
+    </main>
+
+    <% if(isProd === true){ %>
+    <script src="/dist/app.min.js"></script>
+    <% } else{ %>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/mainController.js"></script>
+    <script src="/assets/js/mainService.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <% } %>
+    <script
+      src="https://kit.fontawesome.com/a032fe1b0d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

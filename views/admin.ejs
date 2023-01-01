@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - File Downloader</title>
+    <% if(isProd === false){ %>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <% } else{ %>
+    <link rel="stylesheet" href="/dist/app.min.css" />
+    <% } %>
+  </head>
+  <body ng-controller="mainController">
+    <%- include('./includes/header.ejs') %>
+
+    <main id="admin">
+      <div class="container">
+        <div class="row justify-content-center mt-5">
+          <div class="col-10 text-center">
+            <a href="/admin" class="text-decoration-none">
+              <div class="adminSection rounded bg-white p-4 activeAdminSection">
+                <i class="fas fa-file-alt mr-2 themeColor"></i>
+                <span class="d-inline-block mainPara dragDropPara">Files</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <%- include('./includes/adminFiles.ejs'); %>
+    </main>
+
+    <% if(isProd === true){ %>
+    <script src="/dist/app.min.js"></script>
+    <% } else{ %>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/mainController.js"></script>
+    <script src="/assets/js/mainService.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <% } %>
+    <script
+      src="https://kit.fontawesome.com/a032fe1b0d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

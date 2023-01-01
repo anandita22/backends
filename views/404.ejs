@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found</title>
+    <% if(isProd === false){ %>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <% } else{ %>
+    <link rel="stylesheet" href="/dist/app.min.css" />
+    <% } %>
+  </head>
+  <body ng-controller="mainController">
+    <%- include('./includes/header.ejs') %>
+
+    <div class="container mt-md-5 mt-3">
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <div id="loginCTA" class="rounded px-3 pt-3 pb-4 text-center">
+            <h2 class="signIntext mb-3 mt-3 pb-3 text-center transparentBorder">
+              Page Not Found
+            </h2>
+            <a href="/" class="text-decoration-none d-inline-block">
+              <button class="btn px-4 py-2" type="button">
+                Go to home
+                <i class="fas fa-home ml-1 normalFontSize"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if(isProd === true){ %>
+    <script src="/dist/app.min.js"></script>
+    <% } else{ %>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/mainController.js"></script>
+    <script src="/assets/js/mainService.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <% } %>
+    <script
+      src="https://kit.fontawesome.com/a032fe1b0d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

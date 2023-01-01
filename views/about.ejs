@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <% if(isProd === false){ %>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/custom.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <% } else{ %>
+    <link rel="stylesheet" href="/dist/app.min.css" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <%- include('./includes/googleAnalytic.ejs'); %> <% } %> <%-
+    include('./adv/popup.ejs'); %> <%- include('./adv/pagePush.ejs'); %>
+  </head>
+  <body ng-controller="mainController">
+    <%- include('./includes/header.ejs') %>
+
+    <main>
+      <div class="container mt-lg-5 mt-4" id="content">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="mb-4">FAUG : File sharing</h1>
+            <p>
+              Hi, <br />
+              FAUG : File sharing is a portal which provides you a solution by
+              shrinking your link and earn money through it. We have hundreds of
+              clients all over the world. By connecting with us you earn a lot
+              by just sharing your links.
+            </p>
+
+            <h1 class="mb-4">Why FAUG?</h1>
+            <ul>
+              <li>No hidden charges</li>
+              <li>Start in just 1min signup process</li>
+              <li>Full 24x7 online support</li>
+            </ul>
+
+            <h1 class="mb-4">My Team</h1>
+            <ul>
+              <li>Arbaz Tyagi - Business Analyst & Operator</li>
+              <li>Andrew - Software Developer</li>
+            </ul>
+
+            <p>
+              Feel free to contact us, If you have any query <br />
+              Thanks
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <% if(isProd === true){ %>
+    <script src="/dist/app.min.js"></script>
+    <% } else{ %>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/mainController.js"></script>
+    <script src="/assets/js/mainService.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <% } %>
+    <script
+      src="https://kit.fontawesome.com/a032fe1b0d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

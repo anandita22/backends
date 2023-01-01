@@ -1,0 +1,143 @@
+<div
+  id="fileUploadModal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myLargeModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div id="loginCTA" class="rounded px-3 pt-3 pb-4">
+        <h2 class="signIntext mb-5 pb-3 text-center">Add Files</h2>
+        <form novalidate name="addFileForm">
+          <div class="position-relative mb-4">
+            <input
+              type="text"
+              class="form-control px-3 w-100"
+              name="fileName"
+              ng-model="file.fileName"
+              placeholder="File Name"
+              ng-class="{
+                invalid_Input:
+                  (addFileForm.fileName.$invalid &&
+                    addFileForm.fileName.$dirty &&
+                    addFileForm.fileName.$touched) ||
+                  (addFileFormSubmitted && addFileForm.fileName.$invalid)
+              }"
+              required
+            />
+            <p
+              class="errorMsg mb-0 commonFontSize pl-3"
+              ng-if="
+                (addFileForm.fileName.$invalid &&
+                  addFileForm.fileName.$dirty &&
+                  addFileForm.fileName.$touched) ||
+                (addFileFormSubmitted && addFileForm.fileName.$invalid)
+              "
+            >
+              Enter file name
+            </p>
+          </div>
+          <div class="position-relative mb-4">
+            <input
+              type="text"
+              class="form-control px-3 w-100"
+              name="fileSize"
+              ng-model="file.fileSize"
+              placeholder="File Size (Ex: 10MB)"
+              ng-class="{
+                invalid_Input:
+                  (addFileForm.fileSize.$invalid &&
+                    addFileForm.fileSize.$dirty &&
+                    addFileForm.fileSize.$touched) ||
+                  (addFileFormSubmitted && addFileForm.fileSize.$invalid)
+              }"
+              required
+            />
+            <p
+              class="errorMsg mb-0 commonFontSize pl-3"
+              ng-if="
+                (addFileForm.fileSize.$invalid &&
+                  addFileForm.fileSize.$dirty &&
+                  addFileForm.fileSize.$touched) ||
+                (addFileFormSubmitted && addFileForm.fileSize.$invalid)
+              "
+            >
+              Enter file size
+            </p>
+          </div>
+          <div class="position-relative mb-4">
+            <input
+              type="text"
+              class="form-control px-3 w-100"
+              name="downloadURL"
+              ng-model="file.downloadURL"
+              placeholder="Download URL"
+              ng-class="{
+                invalid_Input:
+                  (addFileForm.downloadURL.$invalid &&
+                    addFileForm.downloadURL.$dirty &&
+                    addFileForm.downloadURL.$touched) ||
+                  (addFileFormSubmitted && addFileForm.downloadURL.$invalid)
+              }"
+              required
+              ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"
+            />
+            <p
+              class="errorMsg mb-0 commonFontSize pl-3"
+              ng-if="
+                (addFileForm.downloadURL.$invalid &&
+                  addFileForm.downloadURL.$dirty &&
+                  addFileForm.downloadURL.$touched) ||
+                (addFileFormSubmitted && addFileForm.downloadURL.$invalid)
+              "
+            >
+              Must be a valid URL
+            </p>
+          </div>
+          <div
+            class="position-relative d-flex justify-content-between"
+            ng-if="addFileResMsg && addFileResMsg.length"
+          >
+            <p class="errorMsg commonFontSize pl-3">
+              {{ addFileResMsg }}
+            </p>
+          </div>
+          <div class="position-relative d-flex justify-content-between">
+            <div>
+              <button
+                ng-disabled="addFileBtnText === 'Adding...'"
+                class="btn px-4 py-2"
+                type="button"
+                ng-click="submitFiles(addFileForm.$valid)"
+              >
+                {{ addFileBtnText }}
+                <i class="fas fa-sign-in-alt ml-1 normalFontSize"></i>
+              </button>
+            </div>
+
+            <div class="d-flex">
+              <input
+                ng-readonly="true"
+                type="text"
+                class="form-control px-3 w-100 copyFileURL"
+                placeholder="https://faug.guru/file/..."
+                id="copyFileURLInput"
+              />
+
+              <button
+                class="btn px-4 py-2 copyFileURLBtn ml-3"
+                type="button"
+                ng-click="copyFileURL()"
+              >
+                {{ copyURLText }}
+                <i class="fas fa-paste ml-1 normalFontSize"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

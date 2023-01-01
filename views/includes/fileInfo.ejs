@@ -1,0 +1,33 @@
+<div class="container my-sm-5 my-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="fileInfoWrapper rounded px-2 py-3">
+        <div class="d-flex align-items-center ml-2">
+          <div class="mr-3">
+            <i class="far fa-file-archive"></i>
+          </div>
+          <div>
+            <h2 class="signIntext mb-0">
+              <%= fileData.name %>
+            </h2>
+            <div class="metaInfo">
+              <span class="d-inline-block mr-3">
+                Uploaded on:
+                <span class="d-inline-block font-weight-bold"
+                  ><%= fileData.uploadDate %></span
+                >
+              </span>
+
+              <span class="d-inline-block mr-3">
+                Size:
+                <span class="d-inline-block font-weight-bold"
+                  ><%= fileData.size %></span
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
